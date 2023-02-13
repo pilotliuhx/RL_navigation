@@ -18,7 +18,7 @@ update_time = 20
 state_dim = 4
 action_dim = 9
 max_step_per_eps = 300
-max_action = 1
+max_action = 3
 test_period = 100
 args = {
     'start_timesteps':1e3,
@@ -51,8 +51,8 @@ def state_processing(data):
 
 def act_processing(data):
     velocity = Twist()
-    velocity.linear.x = data[0]
-    velocity.linear.y = data[1]
+    velocity.linear.x = data[0] * max_action
+    velocity.linear.y = data[1] * max_action
     return velocity
 
 def params_callback(data):
