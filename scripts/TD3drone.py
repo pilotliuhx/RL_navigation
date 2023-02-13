@@ -10,13 +10,14 @@ import numpy as np
 state_dim = 4
 action_dim = 2
 max_step_per_eps = 300
-max_action = 2
+max_action = 1.5
 test_period = 100
+max_buf_len = int(1e4)
 args = {
     'start_timesteps':1e3,
     'eval_freq': 5e3,
     'expl_noise': 0.1,
-    'batch_size': 128,
+    'batch_size': 500,
     'discount': 0.99,
     'tau': 0.005,
     'policy_noise': 0.2,
@@ -69,7 +70,7 @@ kwargs["policy_freq"] = args['policy_freq']
 policy = TD3.TD3(**kwargs)
 rospy.loginfo('policy is ready!')
 #policy.load('TD3models/Atti_Models/history/ctrlmodel_8_199999')
-replay_buffer = utils.ReplayBuffer(state_dim, action_dim)
+replay_buffer = utils.ReplayBuffer(state_dim, action_dim,max_size=max_buf_len)
 stepcounter = 0
 rewardlog = []
 start_train = False
