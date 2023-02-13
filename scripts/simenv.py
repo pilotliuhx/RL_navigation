@@ -23,8 +23,8 @@ class sim_env():
         self.set_goal()
 
     def gazebo_states_callback(self, data):
-        self.drone_states.pose = data.pose[1]
-        self.drone_states.twist = data.twist[1]
+        self.drone_states.pose = data.pose[-1]
+        self.drone_states.twist = data.twist[-1]
         #rospy.loginfo('received a state data!')
         
     def get_reward(self, vel):
@@ -35,7 +35,7 @@ class sim_env():
         distance = math.sqrt(dis_x ** 2 + dis_y ** 2)
         
         reward =  (self.distance_ - distance)
-        reward -= 0.05 * (abs(self.action_.linear.x - vel.linear.x) + abs(self.action_.linear.y - vel.linear.y))
+        reward = reward - 0.05 * (abs(self.action_.linear.x - vel.linear.x) + abs(self.action_.linear.y - vel.linear.y))
 
         self.distance_ = distance
         self.action_ = vel
