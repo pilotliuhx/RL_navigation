@@ -73,9 +73,9 @@ class TD3(object):
 		max_action,
 		discount=0.99,
 		tau=0.005,
-		policy_noise=0.2,
-		noise_clip=0.5,
-		policy_freq=2,
+		policy_noise=0.2, #Not used
+		noise_clip=0.5, #Not used
+		policy_freq=2, 
 		lr = 1e-4
 	):
 		self.lr = lr
@@ -109,7 +109,7 @@ class TD3(object):
 		state, action, next_state, reward, not_done = replay_buffer.sample(batch_size)
 
 		with torch.no_grad():
-			# Select action according to policy and add clipped noise
+			# Select action according to policy and add clipped noise   Not used !!!
 			noise = (
 				torch.randn_like(action) * self.policy_noise
 			).clamp(-self.noise_clip, self.noise_clip)

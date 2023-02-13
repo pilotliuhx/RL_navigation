@@ -7,16 +7,8 @@ from simenv import sim_env
 from geometry_msgs.msg import Twist
 import numpy as np
 
-max_episode = 40000
-fc_n = 256
-e_greedy = 0.1
-buff_length = 2000
-lr = 0.01
-batch_size = 32
-gamma = 0.99
-update_time = 20
 state_dim = 4
-action_dim = 9
+action_dim = 2
 max_step_per_eps = 300
 max_action = 2
 test_period = 100
@@ -36,7 +28,7 @@ args = {
 kwargs = {
     "state_dim": state_dim,
     "action_dim": action_dim,
-    "max_action": max_action,
+    "max_action": 1.0,
     "discount": args['discount'],
     "tau": args['tau'],
     "lr": args['lr']
