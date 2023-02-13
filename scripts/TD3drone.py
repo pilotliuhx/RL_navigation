@@ -18,7 +18,7 @@ update_time = 20
 state_dim = 4
 action_dim = 9
 max_step_per_eps = 300
-max_action = 3
+max_action = 2
 test_period = 100
 args = {
     'start_timesteps':1e3,
@@ -66,8 +66,8 @@ def params_callback(data):
 rospy.init_node('simenv_node', anonymous=True)
 rospy.Subscriber('/TD3/params', Vector3, params_callback)
 goal = Vector3()
-goal.x = 3
-goal.y = 3
+goal.x = 5
+goal.y = 5
 goal.z = 1
 env = sim_env(goal, max_step_per_eps)
 kwargs["policy_noise"] = args['policy_noise'] * max_action
@@ -104,9 +104,10 @@ for episode in range(500000):
             if start_train == False:
                 print('start training!')
                 start_train = True
-            noise = np.random.normal(0, max_action * args['expl_noise'], size=action_dim).clip(-max_action, max_action)
+            noise = np.random.normal(0, 1.0 * args['expl_noise'], size=action_dim).clip(-1.0, 1.0)
+            action = policy.select_action(state)
             if episode % test_period != 0:
-                action = policy.select_action(state) + noise
+                action = action + noise
             action_in = act_processing(action)
         # perform action
         next_drone_state, reward, done = env.step(action_in)

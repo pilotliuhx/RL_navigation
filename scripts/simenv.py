@@ -20,6 +20,7 @@ class sim_env():
         self.step_cnt = 0
         self.distance_ = 0.0
         self.action_ = Twist()
+        self.set_goal()
 
     def gazebo_states_callback(self, data):
         self.drone_states.pose = data.pose[1]
@@ -65,6 +66,16 @@ class sim_env():
         # rospy.loginfo('model pos : %f, %f, %f' ,self.drone_states.pose.position.x, \
         # self.drone_states.pose.position.y, self.drone_states.pose.position.z)
         return self.drone_states, reward, done
+    
+    def set_goal(self):
+        rospy.wait_for_service('/gazebo/set_model_state')
+        m_set_srv = rospy.ServiceProxy('/gazebo/set_model_state',SetModelState)
+        state = ModelState()
+        state.model_name = 'destination'
+        state.pose.position.x = self.goal.x
+        state.pose.position.y = self.goal.y
+        state.pose.position.z = 1.0
+        m_set_srv(state)
 
     def reset(self):
         rospy.wait_for_service('/gazebo/set_model_state')
