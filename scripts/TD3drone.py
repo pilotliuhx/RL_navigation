@@ -9,17 +9,16 @@ import numpy as np
 
 state_dim = 4
 action_dim = 2
-max_step_per_eps = 300
-max_action = 1.5
+max_step_per_eps = 500
+max_action = 1
 test_period = 100
 max_buf_len = int(1e4)
 args = {
     'start_timesteps':1e3,
-    'eval_freq': 5e3,
-    'expl_noise': 0.1,
-    'batch_size': 500,
+    'expl_noise': 0.3,
+    'batch_size': 64,
     'discount': 0.99,
-    'tau': 0.005,
+    'tau': 0.01,
     'policy_noise': 0.2,
     'noise_clip': 0.5,
     'policy_freq': 2,
@@ -121,7 +120,7 @@ for episode in range(500000):
             
     # End of Episode
     rewardlog.append(episode_reward)
-    
+    env.set_goal()
     print('episode:', episode, 'reward:', episode_reward, 'step:', step)
     with open("/home/lhx/catkin_ws/src/simenv/scripts/rewardlog.txt","a") as logf:
         logf.write(str(episode) + " " + str(episode_reward) + "\n")

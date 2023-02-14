@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import rospy
 import math
+import numpy as np
 from geometry_msgs.msg import Vector3
 from geometry_msgs.msg import Transform
 from trajectory_msgs.msg import MultiDOFJointTrajectory
@@ -12,6 +13,7 @@ from gazebo_msgs.msg import ModelState
 class sim_env():
     def __init__(self, goal_pos, max_steps):
         self.drone_states = ModelState()
+        self.obstacle_pos = []
         self.goal = goal_pos
         self.vel_publisher = rospy.Publisher('/iris/command/trajectory', MultiDOFJointTrajectory, queue_size=10)
         rospy.Subscriber('/gazebo/model_states', ModelStates, self.gazebo_states_callback)
@@ -21,26 +23,41 @@ class sim_env():
         self.distance_ = 0.0
         self.action_ = Twist()
         self.set_goal()
+        self.reset()
 
     def gazebo_states_callback(self, data):
         self.drone_states.pose = data.pose[-1]
         self.drone_states.twist = data.twist[-1]
-        #rospy.loginfo('received a state data!')
+        if np.size(self.obstacle_pos) < 1:
+            for pos in data.pose[1:-2]:
+                self.obstacle_pos.append(pos)
+            rospy.loginfo('Get ' + str(np.size(self.obstacle_pos)) + ' obstacles')
         
     def get_reward(self, vel):
         done = False
+        collision = False
         reward = 0.0
         dis_x = self.drone_states.pose.position.x - self.goal.x
         dis_y = self.drone_states.pose.position.y - self.goal.y
         distance = math.sqrt(dis_x ** 2 + dis_y ** 2)
-        
-        reward =  (self.distance_ - distance)
-        reward = reward - 0.05 * (abs(self.action_.linear.x - vel.linear.x) + abs(self.action_.linear.y - vel.linear.y))
+        for pos in self.obstacle_pos:
+            dis_x = self.drone_states.pose.position.x - pos.position.x
+            dis_y = self.drone_states.pose.position.y - pos.position.y
+            if math.sqrt(dis_x ** 2 + dis_y ** 2) < 0.5:
+                collision = True
+                break
+
+        reward =  (self.distance_ - distance) * 2
+        reward = reward - 0.01 * (abs(self.action_.linear.x - vel.linear.x) + abs(self.action_.linear.y - vel.linear.y))
 
         self.distance_ = distance
         self.action_ = vel
 
-        if(distance < 0.1):
+        if(collision):
+            reward -= 5
+            rospy.loginfo('Collide with obstacle, reset!')
+            done = True
+        if(distance < 0.5):
             reward += 5
             done = True
         if self.step_cnt >= self.max_steps:
