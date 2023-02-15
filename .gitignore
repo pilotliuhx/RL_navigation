@@ -1,3 +1,4 @@
 scripts/results/
 scripts/rewardlog.txt
 scripts/ctrlmodel*
+*.pyc
