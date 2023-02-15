@@ -9,14 +9,15 @@ import numpy as np
 
 state_dim = 4
 action_dim = 2
+max_episode = 100000
 max_step_per_eps = 500
 max_action = 1
 test_period = 100
-max_buf_len = int(1e4)
+max_buf_len = int(5e4)
 args = {
     'start_timesteps':1e3,
-    'expl_noise': 0.3,
-    'batch_size': 64,
+    'expl_noise': 0.1,
+    'batch_size': 512,
     'discount': 0.99,
     'tau': 0.01,
     'policy_noise': 0.2,
@@ -74,7 +75,9 @@ stepcounter = 0
 rewardlog = []
 start_train = False
 start_data_collect = False
-for episode in range(500000):
+for episode in range(max_episode):
+    if episode > 100 and args['expl_noise'] > 0.01:
+        args['expl_noise'] = args['expl_noise'] - (0.1 / 80000)
     drone_state = env.reset()
     state = state_processing(drone_state)
     #rospy.loginfo('state: %f %f %f %f', state[0], state[1], state[2], state[3])
@@ -96,7 +99,7 @@ for episode in range(500000):
             if start_train == False:
                 print('start training!')
                 start_train = True
-            noise = np.random.normal(0, 1.0 * args['expl_noise'], size=action_dim).clip(-1.0, 1.0)
+            noise = np.random.normal(0, 1.0 * args['expl_noise'], size=action_dim).clip(-0.5, 0.5)
             action = policy.select_action(state)
             if episode % test_period != 0:
                 action = action + noise

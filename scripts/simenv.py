@@ -54,7 +54,7 @@ class sim_env():
         self.action_ = vel
 
         if(collision):
-            reward -= 5
+            reward -= 50
             rospy.loginfo('Collide with obstacle, reset!')
             done = True
         if(distance < 0.5):
