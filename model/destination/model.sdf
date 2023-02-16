@@ -3,14 +3,14 @@
   <model name='destination'>
     <link name='link'>
       <inertial>
-        <mass>1</mass>
+        <mass>0.0182097</mass>
         <inertia>
-          <ixx>0.166667</ixx>
+          <ixx>2.41e-05</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.166667</iyy>
+          <iyy>1.97e-05</iyy>
           <iyz>0</iyz>
-          <izz>0.166667</izz>
+          <izz>2.207e-05</izz>
         </inertia>
         <pose frame=''>0 0 0 0 -0 0</pose>
       </inertial>
@@ -22,7 +22,7 @@
       <visual name='visual'>
         <geometry>
           <box>
-            <size>0.308325 0.34505 0.311204</size>
+            <size>0.076314 0.09337 0.084624</size>
           </box>
         </geometry>
         <material>
@@ -48,7 +48,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.0 0.0 0.0</size>
+            <size>0.076314 0.09337 0.084624</size>
           </box>
         </geometry>
         <surface>
