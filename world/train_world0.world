@@ -13,6 +13,7 @@
       </attenuation>
       <direction>-0.5 0.1 -0.9</direction>
     </light>
+    <plugin name='ros_interface_plugin' filename='librotors_gazebo_ros_interface_plugin.so'/>
     <gravity>0 0 -9.8</gravity>
     <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
     <atmosphere type='adiabatic'/>
@@ -138,16 +139,16 @@
       <pose frame=''>7.63837 7.89285 0 0 -0 0</pose>
     </model>
     <state world_name='default'>
-      <sim_time>1309 376000000</sim_time>
-      <real_time>46 127220395</real_time>
-      <wall_time>1677140928 978373793</wall_time>
-      <iterations>45828</iterations>
+      <sim_time>1339 999000000</sim_time>
+      <real_time>30 885312088</real_time>
+      <wall_time>1677144393 653077306</wall_time>
+      <iterations>30623</iterations>
       <model name='destination'>
         <pose frame=''>10 10 1 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>10 10 0.80041 0 -0 0</pose>
-          <velocity>-0 -0 -0 0 -0 0</velocity>
+          <pose frame=''>10 10 1 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
@@ -163,340 +164,340 @@
         </link>
       </model>
       <model name='obstacle'>
-        <pose frame=''>1.33963 2.01317 0.987545 -5e-06 -5e-05 0.003644</pose>
+        <pose frame=''>1.33964 2.01319 0.987545 -2.9e-05 -4.1e-05 0.003651</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>1.33963 2.01317 0.987545 -5e-06 -5e-05 0.003644</pose>
+          <pose frame=''>1.33964 2.01319 0.987545 -2.9e-05 -4.1e-05 0.003651</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone'>
-        <pose frame=''>1.45905 4.37795 0.987544 -3.7e-05 -0 0.003615</pose>
+        <pose frame=''>1.459 4.37793 0.987545 -1.9e-05 -4.7e-05 0.003622</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>1.45905 4.37795 0.987544 -3.7e-05 -0 0.003615</pose>
+          <pose frame=''>1.459 4.37793 0.987545 -1.9e-05 -4.7e-05 0.003622</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_0'>
-        <pose frame=''>3.50904 1.99998 0.987543 -6e-06 -2.7e-05 0.003618</pose>
+        <pose frame=''>3.50902 1.99999 0.987545 -1.4e-05 -4.5e-05 0.003622</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>3.50904 1.99998 0.987543 -6e-06 -2.7e-05 0.003618</pose>
+          <pose frame=''>3.50902 1.99999 0.987545 -1.4e-05 -4.5e-05 0.003622</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 -0 -0 -0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_1'>
-        <pose frame=''>5.00026 2.47453 0.98755 -5.3e-05 2.5e-05 0.005732</pose>
+        <pose frame=''>5.00029 2.47454 0.987551 -5.9e-05 2.9e-05 0.006021</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>5.00026 2.47453 0.98755 -5.3e-05 2.5e-05 0.005732</pose>
+          <pose frame=''>5.00029 2.47454 0.987551 -5.9e-05 2.9e-05 0.006021</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_10'>
-        <pose frame=''>4.58011 6.00006 0.987551 -5.8e-05 2.6e-05 0.005444</pose>
+        <pose frame=''>4.58014 6.00006 0.987541 -5.5e-05 2.6e-05 0.005748</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>4.58011 6.00006 0.987551 -5.8e-05 2.6e-05 0.005444</pose>
+          <pose frame=''>4.58014 6.00006 0.987541 -5.5e-05 2.6e-05 0.005748</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <acceleration>0 0 -9.8 0 -1e-06 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_11'>
-        <pose frame=''>9.00025 3.00006 0.987551 -5.6e-05 2.6e-05 0.005632</pose>
+        <pose frame=''>9.00028 3.00007 0.987551 -5.6e-05 2.6e-05 0.005904</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>9.00025 3.00006 0.987551 -5.6e-05 2.6e-05 0.005632</pose>
+          <pose frame=''>9.00028 3.00007 0.987551 -5.6e-05 2.6e-05 0.005904</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_12'>
-        <pose frame=''>9.00026 8.5093 0.987542 -6.2e-05 2.8e-05 0.0056</pose>
+        <pose frame=''>9.00028 8.50929 0.987541 -5.1e-05 2.3e-05 0.005891</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>9.00026 8.5093 0.987542 -6.2e-05 2.8e-05 0.0056</pose>
+          <pose frame=''>9.00028 8.50929 0.987541 -5.1e-05 2.3e-05 0.005891</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <acceleration>0 0 -9.8 0 -1e-06 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_13'>
-        <pose frame=''>3.0516 0.364416 0.987544 -3.4e-05 9e-06 0.003608</pose>
+        <pose frame=''>3.05155 0.364415 0.987545 -3.2e-05 -3.9e-05 0.003615</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>3.0516 0.364416 0.987544 -3.4e-05 9e-06 0.003608</pose>
+          <pose frame=''>3.05155 0.364415 0.987545 -3.2e-05 -3.9e-05 0.003615</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_14'>
-        <pose frame=''>4.59138 1.00006 0.987551 -5.9e-05 2.5e-05 0.005234</pose>
+        <pose frame=''>4.5914 1.00006 0.987551 -5.8e-05 2.5e-05 0.005488</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>4.59138 1.00006 0.987551 -5.9e-05 2.5e-05 0.005234</pose>
+          <pose frame=''>4.5914 1.00006 0.987551 -5.8e-05 2.5e-05 0.005488</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_15'>
-        <pose frame=''>1.00003 7.55631 0.987544 -3.9e-05 -5e-06 0.003608</pose>
+        <pose frame=''>0.99999 7.55629 0.987545 -1.5e-05 -4.6e-05 0.003617</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>1.00003 7.55631 0.987544 -3.9e-05 -5e-06 0.003608</pose>
+          <pose frame=''>0.99999 7.55629 0.987545 -1.5e-05 -4.6e-05 0.003617</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_16'>
-        <pose frame=''>4.00022 11 0.987551 -5.9e-05 2.5e-05 0.005279</pose>
+        <pose frame=''>4.00024 11 0.987541 -5.8e-05 2.4e-05 0.005531</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>4.00022 11 0.987551 -5.9e-05 2.5e-05 0.005279</pose>
+          <pose frame=''>4.00024 11 0.987541 -5.8e-05 2.4e-05 0.005531</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_17'>
-        <pose frame=''>7.00023 7.55538 0.987551 -6.1e-05 2.7e-05 0.00538</pose>
+        <pose frame=''>7.00026 7.55538 0.987551 -5.7e-05 2.6e-05 0.005683</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>7.00023 7.55538 0.987551 -6.1e-05 2.7e-05 0.00538</pose>
+          <pose frame=''>7.00026 7.55538 0.987551 -5.7e-05 2.6e-05 0.005683</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_18'>
-        <pose frame=''>11.0002 8.00005 0.987542 -6.2e-05 2.5e-05 0.005521</pose>
+        <pose frame=''>11.0002 8.00005 0.98755 -5.1e-05 2.2e-05 0.005797</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>11.0002 8.00005 0.987542 -6.2e-05 2.5e-05 0.005521</pose>
+          <pose frame=''>11.0002 8.00005 0.98755 -5.1e-05 2.2e-05 0.005797</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_19'>
-        <pose frame=''>10.0001 12 0.987544 -4e-05 2.4e-05 0.003629</pose>
+        <pose frame=''>10.0001 12 0.987545 -4.2e-05 2.2e-05 0.003629</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>10.0001 12 0.987544 -4e-05 2.4e-05 0.003629</pose>
+          <pose frame=''>10.0001 12 0.987545 -4.2e-05 2.2e-05 0.003629</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_2'>
-        <pose frame=''>2.19386 7.89591 0.98755 -5.6e-05 2.5e-05 0.005072</pose>
+        <pose frame=''>2.19388 7.89591 0.987541 -5.3e-05 2.5e-05 0.005256</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>2.19386 7.89591 0.98755 -5.6e-05 2.5e-05 0.005072</pose>
+          <pose frame=''>2.19388 7.89591 0.987541 -5.3e-05 2.5e-05 0.005256</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_20'>
-        <pose frame=''>13.0001 12 0.987545 -4.9e-05 9e-06 0.003558</pose>
+        <pose frame=''>13.0001 12 0.987545 -2.7e-05 4.2e-05 0.003552</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>13.0001 12 0.987545 -4.9e-05 9e-06 0.003558</pose>
+          <pose frame=''>13.0001 12 0.987545 -2.7e-05 4.2e-05 0.003552</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_21'>
-        <pose frame=''>10.0002 5.00005 0.987542 -6e-05 2.8e-05 0.005375</pose>
+        <pose frame=''>10.0002 5.00005 0.987551 -5.9e-05 2.4e-05 0.005685</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>10.0002 5.00005 0.987542 -6e-05 2.8e-05 0.005375</pose>
+          <pose frame=''>10.0002 5.00005 0.987551 -5.9e-05 2.4e-05 0.005685</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_22'>
-        <pose frame=''>8.00022 6.00005 0.987551 -5.7e-05 2.7e-05 0.005227</pose>
+        <pose frame=''>8.00025 6.00005 0.987541 -5.4e-05 2.7e-05 0.005527</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>8.00022 6.00005 0.987551 -5.7e-05 2.7e-05 0.005227</pose>
+          <pose frame=''>8.00025 6.00005 0.987541 -5.4e-05 2.7e-05 0.005527</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_23'>
-        <pose frame=''>11.0002 2.00006 0.987551 -6.1e-05 2.8e-05 0.005185</pose>
+        <pose frame=''>11.0002 2.00005 0.98754 -4.7e-05 2.2e-05 0.005484</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>11.0002 2.00006 0.987551 -6.1e-05 2.8e-05 0.005185</pose>
+          <pose frame=''>11.0002 2.00005 0.98754 -4.7e-05 2.2e-05 0.005484</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_24'>
-        <pose frame=''>8.00022 1.00005 0.987541 -5.6e-05 2.5e-05 0.005288</pose>
+        <pose frame=''>8.00025 1.00005 0.987551 -5.6e-05 2.7e-05 0.005585</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>8.00022 1.00005 0.987541 -5.6e-05 2.5e-05 0.005288</pose>
+          <pose frame=''>8.00025 1.00005 0.987551 -5.6e-05 2.7e-05 0.005585</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_25'>
-        <pose frame=''>6.00021 1.00004 0.987541 -5.3e-05 2.4e-05 0.00514</pose>
+        <pose frame=''>6.00024 1.00005 0.987551 -6e-05 2.6e-05 0.00543</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>6.00021 1.00004 0.987541 -5.3e-05 2.4e-05 0.00514</pose>
+          <pose frame=''>6.00024 1.00005 0.987551 -6e-05 2.6e-05 0.00543</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_26'>
-        <pose frame=''>13.0002 5.00006 0.987551 -6e-05 2.7e-05 0.005106</pose>
+        <pose frame=''>13.0002 5.00006 0.987541 -5.9e-05 2.4e-05 0.00537</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>13.0002 5.00006 0.987551 -6e-05 2.7e-05 0.005106</pose>
+          <pose frame=''>13.0002 5.00006 0.987541 -5.9e-05 2.4e-05 0.00537</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_27'>
-        <pose frame=''>13.0002 8.00006 0.987542 -5.9e-05 2.7e-05 0.004947</pose>
+        <pose frame=''>13.0002 8.00007 0.987542 -6.4e-05 2.8e-05 0.005209</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>13.0002 8.00006 0.987542 -5.9e-05 2.7e-05 0.004947</pose>
+          <pose frame=''>13.0002 8.00007 0.987542 -6.4e-05 2.8e-05 0.005209</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_28'>
-        <pose frame=''>6.62099 13.408 0.987545 -4.1e-05 1.9e-05 0.00377</pose>
+        <pose frame=''>6.62099 13.408 0.987545 -4.5e-05 2.2e-05 0.003768</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>6.62099 13.408 0.987545 -4.1e-05 1.9e-05 0.00377</pose>
+          <pose frame=''>6.62099 13.408 0.987545 -4.5e-05 2.2e-05 0.003768</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_29'>
-        <pose frame=''>11.0002 4.00004 0.987542 -5.8e-05 2.6e-05 0.004938</pose>
+        <pose frame=''>11.0002 4.00005 0.987551 -6.2e-05 2.8e-05 0.005208</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>11.0002 4.00004 0.987542 -5.8e-05 2.6e-05 0.004938</pose>
+          <pose frame=''>11.0002 4.00005 0.987551 -6.2e-05 2.8e-05 0.005208</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_3'>
-        <pose frame=''>1.00012 11.0001 0.987551 -5.6e-05 2.6e-05 0.003978</pose>
+        <pose frame=''>1.00012 11.0001 0.98755 -5.1e-05 2.3e-05 0.004052</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>1.00012 11.0001 0.987551 -5.6e-05 2.6e-05 0.003978</pose>
+          <pose frame=''>1.00012 11.0001 0.98755 -5.1e-05 2.3e-05 0.004052</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_30'>
-        <pose frame=''>3.00018 7.00006 0.987541 -5.6e-05 2.4e-05 0.004708</pose>
+        <pose frame=''>3.0002 7.00007 0.987542 -5.8e-05 2.7e-05 0.004944</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>3.00018 7.00006 0.987541 -5.6e-05 2.4e-05 0.004708</pose>
+          <pose frame=''>3.0002 7.00007 0.987542 -5.8e-05 2.7e-05 0.004944</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_31'>
-        <pose frame=''>13.1789 0.785858 0.987541 -5.5e-05 2.6e-05 0.004833</pose>
+        <pose frame=''>13.1789 0.785866 0.98755 -5.8e-05 2.6e-05 0.005128</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>13.1789 0.785858 0.987541 -5.5e-05 2.6e-05 0.004833</pose>
+          <pose frame=''>13.1789 0.785866 0.98755 -5.8e-05 2.6e-05 0.005128</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_4'>
-        <pose frame=''>7.00026 2.43389 0.98755 -5.4e-05 2.3e-05 0.005605</pose>
+        <pose frame=''>7.00029 2.43389 0.987541 -5.3e-05 2.5e-05 0.005888</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>7.00026 2.43389 0.98755 -5.4e-05 2.3e-05 0.005605</pose>
+          <pose frame=''>7.00029 2.43389 0.987541 -5.3e-05 2.5e-05 0.005888</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_5'>
-        <pose frame=''>5.00025 9.00005 0.987541 -5.8e-05 2.5e-05 0.00563</pose>
+        <pose frame=''>5.00028 9.00005 0.987541 -5.5e-05 2.6e-05 0.005948</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>5.00025 9.00005 0.987541 -5.8e-05 2.5e-05 0.00563</pose>
+          <pose frame=''>5.00028 9.00005 0.987541 -5.5e-05 2.6e-05 0.005948</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_6'>
-        <pose frame=''>4.00026 8.00005 0.987542 -6e-05 2.7e-05 0.005537</pose>
+        <pose frame=''>4.00028 8.00005 0.987542 -5.9e-05 2.6e-05 0.005808</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>4.00026 8.00005 0.987542 -6e-05 2.7e-05 0.005537</pose>
+          <pose frame=''>4.00028 8.00005 0.987542 -5.9e-05 2.6e-05 0.005808</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_7'>
-        <pose frame=''>2.31371 3.46111 0.987545 -4.2e-05 -2.3e-05 0.004602</pose>
+        <pose frame=''>2.31369 3.4611 0.987545 -3.3e-05 -3.9e-05 0.00461</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>2.31371 3.46111 0.987545 -4.2e-05 -2.3e-05 0.004602</pose>
+          <pose frame=''>2.31369 3.4611 0.987545 -3.3e-05 -3.9e-05 0.00461</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_8'>
-        <pose frame=''>7.00026 9.40156 0.987551 -5.6e-05 2.6e-05 0.005671</pose>
+        <pose frame=''>7.00028 9.40156 0.987541 -5.2e-05 2.3e-05 0.00596</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>7.00026 9.40156 0.987551 -5.6e-05 2.6e-05 0.005671</pose>
+          <pose frame=''>7.00028 9.40156 0.987541 -5.2e-05 2.3e-05 0.00596</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
         </link>
       </model>
       <model name='obstacle_clone_9'>
-        <pose frame=''>6.00024 3.54125 0.987541 -5.6e-05 2.3e-05 0.005591</pose>
+        <pose frame=''>6.00027 3.54125 0.987541 -5e-05 2.4e-05 0.005878</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>6.00024 3.54125 0.987541 -5.6e-05 2.3e-05 0.005591</pose>
+          <pose frame=''>6.00027 3.54125 0.987541 -5e-05 2.4e-05 0.005878</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -1103.18 0 -0 0</wrench>
@@ -4105,7 +4106,7 @@
         <visual name='visual'>
           <geometry>
             <box>
-              <size>0.076314 0.09337 0.084624</size>
+              <size>0.5 0.5 0.5</size>
             </box>
           </geometry>
           <material>
@@ -4131,7 +4132,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.076314 0.09337 0.084624</size>
+              <size>0.5 0.5 0.5</size>
             </box>
           </geometry>
           <surface>
@@ -4158,7 +4159,7 @@
               <threshold>1e+06</threshold>
             </bounce>
             <contact>
-              <collide_without_contact>0</collide_without_contact>
+              <collide_without_contact>1</collide_without_contact>
               <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
               <collide_bitmask>1</collide_bitmask>
               <ode>
@@ -4183,7 +4184,7 @@
       </link>
       <static>0</static>
       <allow_auto_disable>1</allow_auto_disable>
-      <pose frame=''>9.31084 17.8201 0 0 -0 0</pose>
+      <pose frame=''>10.0926 10.0829 0 0 -0 0</pose>
     </model>
   </world>
 </sdf>
