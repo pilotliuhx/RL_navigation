@@ -49,16 +49,19 @@ class sim_env():
 
         reward =  (self.distance_ - distance) * 2
         reward = reward - 0.01 * (abs(self.action_.linear.x - vel.linear.x) + abs(self.action_.linear.y - vel.linear.y))
-
+        val_vel = math.sqrt(vel.linear.y ** 2 + vel.linear.x ** 2)
+        if val_vel > 5:
+            reward = reward - 0.01 * val_vel
         self.distance_ = distance
         self.action_ = vel
 
         if(collision):
-            reward -= 50
+            reward -= 5
             rospy.loginfo('Collide with obstacle, reset!')
             done = True
         if(distance < 0.5):
             reward += 5
+            rospy.loginfo('Arrive the destination, reset!')
             done = True
         if self.step_cnt >= self.max_steps:
             done = True
