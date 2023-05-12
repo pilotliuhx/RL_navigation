@@ -33,6 +33,9 @@ class sim_env():
                 self.obstacle_pos.append(pos)
             rospy.loginfo('Get ' + str(np.size(self.obstacle_pos)) + ' obstacles')
         
+    def get_obstacle_pos(self):
+        return self.obstacle_pos
+    
     def get_reward(self, vel):
         done = False
         collision = False
@@ -51,7 +54,7 @@ class sim_env():
         reward = reward - 0.01 * (abs(self.action_.linear.x - vel.linear.x) + abs(self.action_.linear.y - vel.linear.y))
         val_vel = math.sqrt(vel.linear.y ** 2 + vel.linear.x ** 2)
         if val_vel > 5:
-            reward = reward - 0.01 * val_vel
+            reward = reward - 0.1 * val_vel
         self.distance_ = distance
         self.action_ = vel
 

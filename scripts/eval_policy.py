@@ -63,6 +63,7 @@ def rollout(policy, env, render):
 			If you're unfamiliar with Python "yield", check this out:
 				https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do
 	"""
+	test_log_flag = True
 	# Rollout until user kills process
 	while True:
 		obs = state_processing(env.reset())
@@ -85,7 +86,16 @@ def rollout(policy, env, render):
 			obs = state_processing(obs)
 			# Sum all episodic rewards as we go along
 			ep_ret += rew
-			
+			if test_log_flag == True:
+				log_data = [obs[0],obs[1],obs[2],obs[3],action[0],action[1],rew]
+				with open("/home/lhx/catkin_ws/src/simenv/scripts/testlog.txt","a") as logf:
+					logf.write(str(log_data).replace('[',' ').replace(']',' ')+'\n')
+		if test_log_flag == True:
+			log_data = env.get_obstacle_pos()
+			for pos in log_data:
+				with open("/home/lhx/catkin_ws/src/simenv/scripts/envlog.txt","a") as logf:
+					logf.write(str(pos.position.x) + ',' + str(pos.position.y) +'\n')
+		test_log_flag = False
 		# Track episodic length
 		ep_len = t
 
