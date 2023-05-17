@@ -5,8 +5,8 @@ from matplotlib.markers import MarkerStyle
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 
-filename = 'world0-2/testlog.txt'
-filename1 = 'world0-2/envlog.txt'
+filename = 'world0/testlog.txt'
+filename1 = 'world0/envlog.txt'
 x, y, vx, vy, v, t, obx, oby = [], [], [], [],[], [], [], []
 index = []
 j = 0
@@ -32,7 +32,8 @@ plt.figure(figsize=(8,8))
 plt.plot(index, vx, color = 'red', alpha=0.8)
 plt.plot(index, vy,color = 'blue')
 plt.plot(index, v,color = 'green')
-
+plt.grid(True)
+plt.legend(('vx','vy','v'))
 
 fig = plt.figure(figsize=(12, 12))
 ax=fig.gca(projection='3d')
@@ -43,11 +44,17 @@ for i in range(len(obx)):
     p=np.outer(oby[i] + 0.2 * np.cos(u),np.ones(len(h)))
     q=np.outer(np.ones(len(u)),h)
     ax.plot_surface(o,p,q,color='grey',linewidth=2,alpha=0.4)
-    ax.scatter(obx[i],oby[i],0,'o',s=160,c="grey",alpha=0.9)
+    ax.scatter(obx[i],oby[i],0,'o',s=170,c="grey",alpha=0.9)
 ax.plot(x, y, t,color='red',linewidth=3,alpha=1) 
 ax.plot(x, y, 0,color='black',linestyle='dotted',linewidth=2,alpha=0.8) 
 ax.scatter(0,0,0.5,'*',s=50,c='blue')
 ax.scatter(10,10,0.5,'s',s=200,c='yellow')
 ax.view_init(elev=55,azim=250)
 plt.gca().set_box_aspect((1,1,0.2))
+ax.set_xlabel('Position X (m)',fontsize='15')
+ax.set_ylabel('Position Y (m)',fontsize='15')
+ax.set_zlabel('Position Z (m)',fontsize='15')
+ax.tick_params(labelsize=10)
+#ax.set_title('flight trajectory')
+plt.legend(('trajectory', 'projectory of trajectory'),loc='upper left',fontsize='20')
 plt.show()
