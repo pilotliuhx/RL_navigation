@@ -63,9 +63,9 @@ class sim_env():
             rospy.loginfo('Collide with obstacle, reset!')
             done = True
         if(distance < 0.5):
-            reward += 5
-            rospy.loginfo('Arrive the destination, reset!')
-            done = True
+            reward = 0.1
+            #rospy.loginfo('Arrive the destination, reset!')
+            #done = True
         if self.step_cnt >= self.max_steps:
             done = True
         return reward, done
@@ -105,7 +105,7 @@ class sim_env():
         h_reset_srv = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
         state = ModelState()
         state.model_name = 'iris'
-        state.pose.position.x = 0.0
+        state.pose.position.x = -1.0
         state.pose.position.y = 0.0
         state.pose.position.z = 1.0
         self.step_cnt = 0
