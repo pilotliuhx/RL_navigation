@@ -4,7 +4,7 @@
 			It can be found here: https://spinningup.openai.com/en/latest/_images/math/e62a8971472597f4b014c2da064f636ffe365ba3.svg
 """
 
-import gym
+# import gym
 import time
 
 import numpy as np
@@ -146,7 +146,7 @@ class PPO:
 				torch.save(self.critic.state_dict(), './ppo_critic.pth')
 
 	def state_processing(self, data):
-		state = np.zeros((self.obs_dim), dtype=np.float)
+		state = np.zeros((self.obs_dim), dtype=np.float64)
 		state[0] = data.pose.position.x
 		state[1] = data.pose.position.y
 		state[2] = data.twist.linear.x
