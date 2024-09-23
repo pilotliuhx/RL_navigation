@@ -145,12 +145,14 @@ class PPO:
 				torch.save(self.actor.state_dict(), './ppo_actor.pth')
 				torch.save(self.critic.state_dict(), './ppo_critic.pth')
 
-	def state_processing(self, data):
+	def state_processing(self, data, data2):
 		state = np.zeros((self.obs_dim), dtype=np.float64)
 		state[0] = data.pose.position.x
 		state[1] = data.pose.position.y
 		state[2] = data.twist.linear.x
 		state[3] = data.twist.linear.y
+		state[4] = data2.pose.position.x
+		state[5] = data2.pose.position.y
 		return state
 	def act_processing(self, data):
 		velocity = Twist()
@@ -193,7 +195,8 @@ class PPO:
 			ep_rews = [] # rewards collected per episode
 
 			# Reset the environment. sNote that obs is short for observation. 
-			obs = self.state_processing(self.env.reset())
+			state1, state2 = self.env.reset()
+			obs = self.state_processing(state1, state2)
 			done = False
 
 			# Run an episode for a maximum of max_timesteps_per_episode timesteps
@@ -208,8 +211,8 @@ class PPO:
 				# Note that rew is short for reward.
 				action, log_prob = self.get_action(obs)
 				action_in = self.act_processing(action)
-				n_obs, rew, done  = self.env.step(action_in)
-				obs = self.state_processing(n_obs)
+				n_obs, goal_state, rew, done  = self.env.step(action_in)
+				obs = self.state_processing(n_obs, goal_state)
 
 				# Track recent reward, action, and action log probability
 				ep_rews.append(rew)
@@ -223,7 +226,7 @@ class PPO:
 			# Track episodic lengths and rewards
 			batch_lens.append(ep_t + 1)
 			batch_rews.append(ep_rews)
-			self.env.set_goal()
+			# self.env.set_goal()
 
 		# Reshape data as tensors in the shape specified in function description, before returning
 		batch_obs = torch.tensor(batch_obs, dtype=torch.float)

@@ -9,11 +9,11 @@ from simenv import sim_env
 from geometry_msgs.msg import Vector3
 
 goal = Vector3()
-goal.x = 10
-goal.y = 10
+goal.x = 0
+goal.y = 0
 goal.z = 1
 max_step_per_eps = 400
-state_dim = 4
+state_dim = 6
 action_dim = 2
 max_action = 1
 
