@@ -30,12 +30,14 @@ def _log_summary(ep_len, ep_ret, ep_num):
 		print(f"------------------------------------------------------", flush=True)
 		print(flush=True)
 
-def state_processing(data):
-		state = np.zeros((4), dtype=np.float)
+def state_processing( data, data2):
+		state = np.zeros(6, dtype=np.float64)
 		state[0] = data.pose.position.x
 		state[1] = data.pose.position.y
 		state[2] = data.twist.linear.x
 		state[3] = data.twist.linear.y
+		state[4] = data2.pose.position.x
+		state[5] = data2.pose.position.y
 		return state
 def act_processing(data):
 	velocity = Twist()
@@ -66,7 +68,8 @@ def rollout(policy, env, render):
 	test_log_flag = True
 	# Rollout until user kills process
 	while True:
-		obs = state_processing(env.reset())
+		state1, state2 = env.reset()
+		obs = state_processing(state1,state2)
 		done = False
 
 		# number of timesteps so far
@@ -82,18 +85,18 @@ def rollout(policy, env, render):
 			# Query deterministic action from policy and run it
 			action = policy(obs).detach().numpy()
 			action_in = act_processing(action)
-			obs, rew, done = env.step(action_in)
-			obs = state_processing(obs)
+			n_obs, goal_state, rew, done  = env.step(action_in)
+			obs = state_processing(n_obs, goal_state)
 			# Sum all episodic rewards as we go along
 			ep_ret += rew
 			if test_log_flag == True:
 				log_data = [obs[0],obs[1],obs[2],obs[3],action[0],action[1],rew]
-				with open("/home/lhx/catkin_ws/src/simenv/scripts/testlog.txt","a") as logf:
+				with open("/home/lhx/RL_ws/src/RL_navigation/scripts/testlog.txt","a") as logf:
 					logf.write(str(log_data).replace('[',' ').replace(']',' ')+'\n')
 		if test_log_flag == True:
 			log_data = env.get_obstacle_pos()
 			for pos in log_data:
-				with open("/home/lhx/catkin_ws/src/simenv/scripts/envlog.txt","a") as logf:
+				with open("/home/lhx/RL_ws/src/RL_navigation/scripts/envlog.txt","a") as logf:
 					logf.write(str(pos.position.x) + ',' + str(pos.position.y) +'\n')
 		test_log_flag = False
 		# Track episodic length
